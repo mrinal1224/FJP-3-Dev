@@ -47,7 +47,7 @@ let substract = (function(a,b){
        return a-b;
 })(20 , 10)
 
-console.log(add)
+console.log(substract)
 
 
 
