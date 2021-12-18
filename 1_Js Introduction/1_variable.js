@@ -51,7 +51,7 @@
 // console.log(b) // hello
 // let b = 'bye' // redcalrtion is not allowed with let keyword
 
-// console.log(b)// bye
+// console.log(b)// Error
 
 
 
@@ -69,7 +69,7 @@
 // //for loop
 // //Prime Number 
 
-// var flag = true // fail
+// var flag = true
 
 // var num = 10
 
@@ -100,8 +100,6 @@
 
 // console.log('I am from outside if block' , a)
 
-// var z;
-// console.log(z)
 
 
 
