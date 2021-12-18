@@ -108,15 +108,16 @@
 //Const 
 
 
-const a = 2
+const a;
 
-console.log(a)
+var b;
+let c;
 
-const a = 3
-const a = 'I am a string' // redcalrtion is not allowed
+//console.log(a)
+console.log(b)
+console.log(c)
 
 
-a = 30 // reassignment is not allowed
 
 
 
