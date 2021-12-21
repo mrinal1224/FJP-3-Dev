@@ -15,7 +15,7 @@
 //console.log(person)
 
 
-let cap = {
+const cap = {
        firstName : 'Steve',
        lastName : 'rogers',
        friends : ['Bucky' , 'Tony' , 'Dr Banner'],
@@ -34,7 +34,7 @@ let cap = {
 
 //console.log(cap)
 
-// console.log(cap.firstName) // Dot notation // access a property of an object
+ console.log(cap.firstName) // Dot notation // access a property of an object
 
 
  console.log(cap['firstName']) // bracket Notation
