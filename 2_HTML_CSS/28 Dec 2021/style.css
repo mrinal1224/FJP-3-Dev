@@ -1,0 +1,44 @@
+/* default styling */
+html{
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       
+}
+
+header h1{
+       font-weight: 400;
+}
+
+header {
+      display: flex;
+      justify-content:space-between;
+      margin: 0 3rem;
+}
+
+nav{
+       position: relative;
+       top : 1rem;
+       right: 3rem;
+       width: 20rem;
+}
+
+ul{
+       display: flex;
+       justify-content: space-between;
+}
+
+
+li{
+       list-style:none;
+       font-size: 1.5rem;
+
+}
+
+
+.showcase_img{
+       width:95vw ;
+       margin:1rem;
+}
+
+article{
+       display: flex;
+}
