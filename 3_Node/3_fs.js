@@ -50,5 +50,47 @@ const fs = require('fs')
 //delete a directory
 //rmdirsync
 
-fs.rmdirSync('myDirectory')
-console.log('Directory Removed')
+// fs.rmdirSync('myDirectory')
+// console.log('Directory Removed')
+
+
+// To check whether a directory exists or not 
+// existsSync
+
+// this returns true or false based on whether the passed directory exists or not
+
+// let doesExist = fs.existsSync('f1.txt')
+// //console.log(doesExist)
+
+// let statsOfDirectory = fs.lstatSync('myDirectory')
+// //console.log(statsOfDirectory)
+
+
+// console.log('isFile?' , statsOfDirectory.isFile())
+
+// console.log('isDirectory?', statsOfDirectory.isDirectory())
+
+
+
+// readdirSync
+
+// readdirSync is a method which is used to check content inside a directory
+
+let folderpath = 'D:\\Batches\\FJP3 Dev\\3_Node\\myDirectory'
+let foldercontent = fs.readdirSync(folderpath)
+console.log("Directory Content   "+ foldercontent)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
