@@ -1,7 +1,3 @@
-
-
-
-
 // //Noraml Function
 
 // function sayHi(){
@@ -44,8 +40,11 @@ sayHi(2 , 3) // we are calling this later whenerver we want to
 
 
 let substract = (function(a,b){
-       console.log(a+b)
+       console.log(a-b)
 })(20 , 10)
+
+
+console.log(substract)
 
 
 

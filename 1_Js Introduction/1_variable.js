@@ -94,11 +94,11 @@
 
 
 // if(10%2==0){
-//        let a = 2
-//        console.log('I am from the If block' , a)
+//        let a = 'Number is Divided'
+//        console.log(a)
 // }
 
-// console.log('I am from outside if block' , a)
+// console.log(a)
 
 
 
@@ -106,14 +106,14 @@
 //Const 
 
 
-const a;
+// const a;
 
-var b;
-let c;
+// var b;
+// let c;
 
-//console.log(a)
-console.log(b)
-console.log(c)
+// //console.log(a)
+// console.log(b)
+// console.log(c)
 
 
 

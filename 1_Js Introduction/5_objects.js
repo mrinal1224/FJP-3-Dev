@@ -39,11 +39,11 @@ const cap = {
 
  console.log(cap['firstName']) // bracket Notation
 
-//console.log('My best friend is', cap.friends[2]) // accesing array elemet from object
+console.log('My best friend is', cap.friends[0]) // accesing array elemet from object
 
-//console.log(cap.address.city) 
+console.log(cap.address.city) 
 
-//cap.sayHi()
+cap.sayHi()
 
 
 //loop -> for in loop
