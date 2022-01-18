@@ -108,7 +108,8 @@ function organizeHelper(src , dest){
 
 
           if(isFile==true){
-                 let fileCategory = getCategory(childNames[i])
+                 let fileCategory = getCategory(childNames[i]);
+                 console.log(childNames[i]+ "  belongs to  " + fileCategory)
           }
    }
 }
@@ -116,6 +117,26 @@ function organizeHelper(src , dest){
 
 function getCategory(name){
        let ext = path.extname(name)
-       ext = ext.slice(1)
-       console.log(ext)
+       ext = ext.slice(1)  // we will take out the extension names of the files 
+       //console.log(ext)
+  
+
+       for(let type in types){
+              let cTypeArr = types[type]
+              //console.log(cTypeArr)
+
+              for(let i=0 ; i<cTypeArr.length ;i++){
+                     if(ext == cTypeArr[i])
+                     // we matched the extensions with the values presnet in ctypeArr
+
+                     return type
+              }
+       }
+
+
+
+
+   return 'others'
+
+
 }
