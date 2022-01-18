@@ -41,25 +41,47 @@ function helpfn() {
 }
 
 function organizeFn(dirpath) {
+       // input of a directory Path
   let destPath;
 
   if (dirpath == undefined) {
     console.log("Please Enter a valid Directory Path");
+    //check whether dirpath is passed or not
     return;
   } else {
     let doesExist = fs.existsSync(dirpath);
-    //console.log(doesExist);
+
+    // this will tell whether the dirpath exsists or not
+    
 
     if (doesExist == true) {
       destPath = path.join(dirpath, "organized_files");
 
+      //   D:\Batches\FJP3 Dev\test Folder\organized_files - I want to create a folder in this path
+
       if (fs.existsSync(destPath) == false) {
-        fs.mkdirSync(destPath);
+        fs.mkdirSync(destPath); // we will only create a folder if it does not already exists
       } else {
-        console.log("This folder Alredy Exists");
+        console.log("This folder Already Exists");
       }
     } else {
       console.log("Please Enter a valid Path");
     }
   }
+
+  organizeHelper(dirpath , destPath)
+
+
+}
+
+// we are writing this function to categorize our files
+function organizeHelper(src , dest){
+   let childNames = fs.readdirSync(src) // get all the files and folders inside your src
+   //console.log(childNames) 
+   
+   for(let i=0 ; i<childNames.length ; i++){
+          let childAddress = path.join(src , childNames[i]) // path is identified for the files
+          let isFile = fs.lstatSync(childAddress).isFile() // we check here to identify only the files
+          console.log(childAddress + "  " + isFile)
+   }
 }
