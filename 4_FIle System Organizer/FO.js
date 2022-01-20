@@ -186,14 +186,17 @@ function treeFn(dirpath){
 
 function treeHelper(targetPath , indent){
      let isFile = fs.lstatSync(targetPath).isFile()
+     // here we have checked wheter the targetPath is a file or a folder
 
      if(isFile==true){
           let fileName = path.basename(targetPath)
           console.log(indent + "├──"+ fileName)
+          // this will display the files
      }
      else{
          let dirName = path.basename(targetPath);
          console.log(indent + '└──' + dirName)
+         // this will display the folders
 
 
          let children = fs.readdirSync(targetPath)
@@ -206,6 +209,7 @@ function treeHelper(targetPath , indent){
 
            //console.log(childPath)
            treeHelper(childPath , indent + '\t')
+           // using Recursion to repeat the process for all files and Folders
          }
      }
 }
