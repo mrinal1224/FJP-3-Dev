@@ -194,6 +194,19 @@ function treeHelper(targetPath , indent){
      else{
          let dirName = path.basename(targetPath);
          console.log(indent + '└──' + dirName)
+
+
+         let children = fs.readdirSync(targetPath)
+         //console.log(children)
+         // here we took out all the children of test folder
+
+
+         for(let i=0 ; i<children.length ; i++){
+           let childPath = path.join(targetPath , children[i]);
+
+           //console.log(childPath)
+           treeHelper(childPath , indent + '\t')
+         }
      }
 }
 
