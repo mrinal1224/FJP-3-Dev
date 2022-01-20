@@ -41,7 +41,7 @@ let command = inputArr[0];
 
 switch (command) {
   case "tree":
-    console.log("Tree Implemented");
+    treeFn(inputArr[1])
     break;
   case "organize":
     organizeFn(inputArr[1]);
@@ -108,8 +108,9 @@ function organizeHelper(src , dest){
 
 
           if(isFile==true){
-                 let fileCategory = getCategory(childNames[i]);
+                 let fileCategory = getCategory(childNames[i]); //.txt
                  console.log(childNames[i]+ "  belongs to  " + fileCategory)
+                 // we took out all the category type of different files
 
                  sendFiles(childAddress , dest , fileCategory)
           }
@@ -147,7 +148,7 @@ function getCategory(name){
 
 
 function sendFiles(srcFilePath , dest , fileCategory){
-       let catPath = path.join(dest, fileCategory)
+       let catPath = path.join(dest, fileCategory) // here we are making file categories paths
 
 
        if(fs.existsSync(catPath)==false){ // checking for category folder path 
@@ -166,3 +167,37 @@ function sendFiles(srcFilePath , dest , fileCategory){
 
        console.log(fileName + "is copied to" + fileCategory)
 }
+
+
+
+function treeFn(dirpath){
+   if(dirpath==undefined){
+     console.log('Please Enter a Valid Command ')
+   }
+
+   else {
+     let doesExist = fs.existsSync(dirpath);
+     if(doesExist==true){
+       treeHelper(dirpath , " ")
+     }
+   }
+}
+
+
+function treeHelper(targetPath , indent){
+     let isFile = fs.lstatSync(targetPath).isFile()
+
+     if(isFile==true){
+          let fileName = path.basename(targetPath)
+          console.log(indent + "├──"+ fileName)
+     }
+     else{
+         let dirName = path.basename(targetPath);
+         console.log(indent + '└──' + dirName)
+     }
+}
+
+
+
+
+
