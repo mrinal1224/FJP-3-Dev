@@ -30,6 +30,14 @@ function handleHtml(html){
  let totalcases = selTool(contentArr[0]).text()
  console.log('Total Cases:' + totalcases)
 
+ let totalDeaths = selTool(contentArr[1]).text(); // cases
+ let totalRecoveries = selTool(contentArr[2]).text();
+
+ console.log("Totals Deaths", totalDeaths);
+ console.log("Total Recoverd", totalRecoveries);
+
+
+
 
 }
 
