@@ -22,15 +22,36 @@ let arr = [2, 5, 9, 8, 15, 11, 6];
 
 // console.log(arr);
 
-let nameArr = ["Mrinal", " Harsh", "Utkarsh"];
+let nameArr = ['Vishal Kumar' , 'Vaibahv Rawal' , 'Anmol Taneja']
 
-// print names using the map function
 
-let nameArr2 = nameArr.map(function(n){
-       return n;
+// You have to use map function and you will take out firstName and lastName separately
+
+let modifiedArray = nameArr.map(function(n){
+       let partsOfname = n.split(' ');
+       return partsOfname
 })
 
-console.log(nameArr2)
+console.log(modifiedArray)
 
 
-// 
+
+
+const transactions = [1000, 3000, 4000, 2000, -898, 3800, -4500];
+const inrtToUsd = 74;
+
+
+let transactioninRs =  transactions.map(function(n){
+       return (n/inrtToUsd).toFixed(2)
+})
+
+console.log(transactions)
+
+console.log(transactioninRs)
+
+
+
+
+
+
+
