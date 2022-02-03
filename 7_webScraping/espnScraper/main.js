@@ -52,6 +52,4 @@ function extractAllLink(html){
    }
 
 
-
-   
 }
