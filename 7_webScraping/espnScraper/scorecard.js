@@ -52,7 +52,7 @@ function extractMatchDetails(html) {
 
     //console.log(teamName , opponentName);
 
-    let cInning = $(innings[i]);
+    let cInning = $(innings[i])
 
 
     let allRows = cInning.find('.table.batsman tbody tr')
@@ -72,6 +72,7 @@ function extractMatchDetails(html) {
               let STR = $(allCols[7]).text().trim()
 
               console.log(`${playerName} | ${runs} |${balls} | ${fours} | ${sixes} | ${STR}`)
+              // Template Literal
         }
 
 
