@@ -1,10 +1,12 @@
-const url =
-  "https://www.espncricinfo.com//series/ipl-2020-21-1210595/mumbai-indians-vs-chennai-super-kings-1st-match-1216492/full-scorecard";
+// const url =
+//   "https://www.espncricinfo.com//series/ipl-2020-21-1210595/mumbai-indians-vs-chennai-super-kings-1st-match-1216492/full-scorecard";
 
 const request = require("request");
 const cheerio = require("cheerio");
 
-request(url, cb);
+function processScoreCrad(url) {
+  request(url, cb);
+}
 
 function cb(err, response, html) {
   if (err) {
@@ -47,48 +49,42 @@ function extractMatchDetails(html) {
     teamName = teamName.split("INNINGS")[0].trim();
     let opponentIndex = i == 0 ? 1 : 0;
 
-    let opponentName = $(innings[opponentIndex]).find('h5').text()
-    opponentName = opponentName.split('INNINGS')[0].trim()
+    let opponentName = $(innings[opponentIndex]).find("h5").text();
+    opponentName = opponentName.split("INNINGS")[0].trim();
 
     //console.log(teamName , opponentName);
 
-    let cInning = $(innings[i])
+    let cInning = $(innings[i]);
 
+    let allRows = cInning.find(".table.batsman tbody tr");
 
-    let allRows = cInning.find('.table.batsman tbody tr')
+    for (let j = 0; j < allRows.length; j++) {
+      let allCols = $(allRows[j]).find("td");
+      let isWorthy = $(allCols[0]).hasClass("batsman-cell");
 
+      if (isWorthy == true) {
+        let playerName = $(allCols[0]).text().trim();
 
-     for(let j=0 ; j<allRows.length ; j++){
-        let allCols = $(allRows[j]).find('td')
-        let isWorthy = $(allCols[0]).hasClass('batsman-cell')
+        let runs = $(allCols[2]).text().trim();
+        let balls = $(allCols[3]).text().trim();
+        let fours = $(allCols[5]).text().trim();
+        let sixes = $(allCols[6]).text().trim();
+        let STR = $(allCols[7]).text().trim();
 
-        if(isWorthy==true){
-              let playerName = $(allCols[0]).text().trim()
+        console.log(
+          `${playerName} | ${runs} |${balls} | ${fours} | ${sixes} | ${STR}`
+        );
+        // Template Literal
+      }
+    }
 
-              let runs = $(allCols[2]).text().trim()
-              let balls = $(allCols[3]).text().trim()
-              let fours = $(allCols[5]).text().trim()
-              let sixes = $(allCols[6]).text().trim()
-              let STR = $(allCols[7]).text().trim()
-
-              console.log(`${playerName} | ${runs} |${balls} | ${fours} | ${sixes} | ${STR}`)
-              // Template Literal
-        }
-
-
-     }
-
-     console.log("````````````````````````````````````````````````````````")
-
-
-
-
-
-
-
-
-    
+    console.log("````````````````````````````````````````````````````````");
   }
 
   //console.log(htmlString)
+}
+
+
+module.exports ={
+  ps : processScoreCrad
 }

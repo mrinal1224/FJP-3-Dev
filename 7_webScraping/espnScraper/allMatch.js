@@ -1,6 +1,9 @@
 const cheerio = require("cheerio");
 const request = require("request");
 
+
+const scorecardObj = require('./scorecard')
+
 function getAllMatchLink(uri) {
   request(uri, function (error, response, html) {
     if (error) {
@@ -19,7 +22,13 @@ function extractAllLink(html) {
   for (let i = 0; i < scoreCardArr.length; i++) {
     let link = $(scoreCardArr[i]).attr("href");
     let fullLink = "https://www.espncricinfo.com/" + link;
-    console.log(fullLink);
+    //console.log(fullLink);
+
+    scorecardObj.ps(fullLink)
+
+
+
+  
   }
 }
 
