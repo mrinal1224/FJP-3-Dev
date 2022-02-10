@@ -1,5 +1,7 @@
 const fs = require("fs");
 
+const xlsx = require('xlsx')
+
 // let buffer = fs.readFileSync("./example.json");
 
 // //console.log(buffer)
@@ -14,7 +16,7 @@ let jsonFile = require('./example.json') // requiring JSON File
 
 jsonFile.push({
   name: "Thor",
-  "last name": "Odinson",
+  "last Name": "Odinson",
   isAvenger: true,
   friends: ["Tony", "Peter", "Bruce"],
   age: 102,
@@ -37,3 +39,32 @@ fs.writeFileSync("example.json", stringData);
 // writing to json file
 
 console.log("JSON file Updated");
+
+
+
+    let newWB = xlsx.utils.book_new();
+    // Creating a new WorkBook
+    let newWS = xlsx.utils.json_to_sheet(jsonFile);
+    // Json is converted to sheet format (rows and cols)
+    xlsx.utils.book_append_sheet(newWB, newWS,'Avengers');
+    xlsx.writeFile(newWB,'abc.xlsx');
+
+
+
+
+    let wb = xlsx.readFile('abc.xlsx');
+
+    let excelData = wb.Sheets['Avengers'];
+    let ans = xlsx.utils.sheet_to_json(excelData);
+    console.log(ans)
+
+
+
+
+
+
+
+
+
+
+
