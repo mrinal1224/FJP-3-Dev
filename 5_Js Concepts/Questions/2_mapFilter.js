@@ -14,6 +14,11 @@ let studentRecords = [
 ];
 
 
+let studentsInUC = studentRecords.map(function(student){
+       return student.name.toUpperCase()
+})
+
+console.log(studentsInUC)
 
 
 
@@ -22,3 +27,11 @@ let studentRecords = [
 
 //Retrieve the details of students who scored more than 50 marks and have id greater than 120 from studentRecord
 //use filter method to approach the problem
+
+
+let studentName = studentRecords.filter(function(student){
+       return student.marks>=50 && student.id>120
+})
+
+
+console.log(studentName)
