@@ -3,20 +3,20 @@
 // })
 
 let promise = new Promise(function (resolve, reject) {
-  const a = 2;
+  const a = 4;
   const b = 4;
 
   if (a === b) {
-    resolve();
+    resolve('Yes they are Equal');
   } else {
-    reject();
+    reject(" No the values are not Equal");
   }
 });
 
 promise
-  .then(function () {
-    console.log("Equal");
+  .then(function (data) {
+    console.log('result coming from Resolve Method->'+ data);
   })
-  .catch(function () {
-    console.log("Error Not Equal");
+  .catch(function (err) {
+    console.log('result coming from Reject Method->'+ err);
   });
