@@ -11,21 +11,17 @@ console.log("Before");
 
 let promise = fs.promises.readFile("f1.txt");
 
-
 //console.log(promise)
 
+FullFilled
+promise.then(function (data) {
+  console.log("File Data -> " + data);
+});
 
-
-
-
-
-// promise.then(function (data) {
-//   console.log("File Data -> "+ data);
-// });
-
-// promise.catch(function(err){
-//        console.log(err)
-// })
+// rejected
+promise.catch(function (err) {
+  console.log(err);
+});
 
 
 
