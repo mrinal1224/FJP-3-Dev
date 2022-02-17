@@ -14,7 +14,7 @@ let page;
 let browserWillbeLauncedPromise = puppeteer.launch({
   headless: false,
   defaultViewport: null,
-  rgs: ["--start-maximized"],
+  args: ["--start-maximized"],
 });
 // we used puppeteer launch method to return an instance of broswer  
 
