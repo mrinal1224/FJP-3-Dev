@@ -1,9 +1,8 @@
 const loginLink = "https://www.hackerrank.com/auth/login";
-
 let email = "fesagom584@chatich.com";
 let password = "pepcoding123";
-
 let puppeteer = require("puppeteer");
+const codeFile = require('./code')
 
 console.log("Before");
 
@@ -68,6 +67,10 @@ browserWillbeLauncedPromise
   })
   .then(function (questionsArr) {
     console.log("No of Questions" + questionsArr.length);
+
+    let questionWillBeSolvedPromise = questionSolver(page , questionsArr[0] , codeFile.answers[0] )
+
+
   });
 
 function waitAndClick(selector, cPage) {
@@ -85,4 +88,16 @@ function waitAndClick(selector, cPage) {
         reject();
       });
   });
+}
+
+
+
+function questionSolver(page , question , answer){
+     return new Promise(function(resolve , reject){
+       let questionWillBeClickedPromise =  question.click()
+       questionWillBeClickedPromise.then(function(){
+         console.log('question Clicked')
+       })
+
+     })   
 }
