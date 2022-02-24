@@ -46,6 +46,25 @@ browserWillbeLauncedPromise
       delay: 100,
     });
     return loginPromise;
+  }).then(function(){
+    let algoWillBeclickedPromise = waitAndClick('.topic-card a[data-attr1="algorithms"]' , page)
+    return algoWillBeclickedPromise;
+  }).then(function(){
+    console.log('Algo Section Clicked')
   });
 
-console.log("After");
+
+
+function waitAndClick(selector , cPage){
+    return new Promise(function(resolve  , reject){
+      let waitForModalPromise = cPage.waitForSelector(selector);
+      waitForModalPromise.then(function(){
+        let clickModalPromise = cPage.click(selector , {delay : 100})
+        return clickModalPromise
+      }).then(function(){
+        resolve()
+      }).catch(function(){
+        reject()
+      })
+    })
+}
