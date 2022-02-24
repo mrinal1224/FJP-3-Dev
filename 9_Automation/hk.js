@@ -50,7 +50,13 @@ browserWillbeLauncedPromise
     let algoWillBeclickedPromise = waitAndClick('.topic-card a[data-attr1="algorithms"]' , page)
     return algoWillBeclickedPromise;
   }).then(function(){
-    console.log('Algo Section Clicked')
+      let getToWarmupPromise = waitAndClick('input[value="warmup"]' , page)
+      return getToWarmupPromise;
+  }).then(function(){
+         let ChallengesArrPromise = page.$$('.ui-btn.ui-btn-normal.primary-cta.ui-btn-line-primary.ui-btn-styled' , {delay : 100})
+         return ChallengesArrPromise
+  }).then(function(questionsArr){
+     console.log("No of Questions" + questionsArr.length)
   });
 
 
