@@ -38,7 +38,10 @@ let obj2 ={
        
 }
 
+
+
 obj2.f()
+
 
 
 //Sumarry -
