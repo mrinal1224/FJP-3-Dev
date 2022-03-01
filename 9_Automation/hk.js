@@ -2,7 +2,7 @@ const loginLink = "https://www.hackerrank.com/auth/login";
 let email = "fesagom584@chatich.com";
 let password = "pepcoding123";
 let puppeteer = require("puppeteer");
-const codeFile = require('./code')
+const codeFile = require("./code");
 
 console.log("Before");
 
@@ -68,9 +68,11 @@ browserWillbeLauncedPromise
   .then(function (questionsArr) {
     console.log("No of Questions" + questionsArr.length);
 
-    let questionWillBeSolvedPromise = questionSolver(page , questionsArr[0] , codeFile.answers[0] )
-
-
+    let questionWillBeSolvedPromise = questionSolver(
+      page,
+      questionsArr[0],
+      codeFile.answers[0]
+    );
   });
 
 function waitAndClick(selector, cPage) {
@@ -90,20 +92,37 @@ function waitAndClick(selector, cPage) {
   });
 }
 
-
-
-function questionSolver(page , question , answer){
-     return new Promise(function(resolve , reject){
-       let questionWillBeClickedPromise =  question.click()
-       questionWillBeClickedPromise.then(function(){
-         return waitAndClick('.checkbox-input' , page)
-       }).then(function(){
-         return page.waitForSelector('.text-area.custominput')
-       }).then(function(){
-          return page.type('.text-area.custominput' , answer , {delay : 20})
-       }).then(function(){
-         console.log('Answer Typed')
-       })
-
-     })   
+function questionSolver(page, question, answer) {
+  return new Promise(function (resolve, reject) {
+    let questionWillBeClickedPromise = question.click();
+    questionWillBeClickedPromise
+      .then(function () {
+        let waitForEditorPromise = waitAndClick(
+          ".monaco-editor.no-user-select.vs",
+          page
+        );
+        return waitForEditorPromise;
+      })
+      .then(function () {
+        return waitAndClick(".checkbox-input", page);
+      })
+      .then(function () {
+        return page.waitForSelector(".text-area.custominput");
+      })
+      .then(function () {
+        return page.type(".text-area.custominput", answer, { delay: 20 });
+      })
+      .then(function () {
+        let ctrlIsPressedPromise = page.keyboard.down('Control');
+        return ctrlIsPressedPromise
+      }).then(function(){
+        let AisPressedPromise = page.keyboard.press('A' , {delay : 20});
+        return AisPressedPromise
+      }).then(function(){
+         let XisPressedPromise = page.keyboard.press('X' , {delay:20})
+         return XisPressedPromise
+      }).then(function(){
+        console.log('Cut Implemented')
+      });
+  });
 }
