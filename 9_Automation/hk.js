@@ -96,7 +96,13 @@ function questionSolver(page , question , answer){
      return new Promise(function(resolve , reject){
        let questionWillBeClickedPromise =  question.click()
        questionWillBeClickedPromise.then(function(){
-         console.log('question Clicked')
+         return waitAndClick('.checkbox-input' , page)
+       }).then(function(){
+         return page.waitForSelector('.text-area.custominput')
+       }).then(function(){
+          return page.type('.text-area.custominput' , answer , {delay : 20})
+       }).then(function(){
+         console.log('Answer Typed')
        })
 
      })   
