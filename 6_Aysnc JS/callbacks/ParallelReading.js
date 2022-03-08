@@ -23,13 +23,13 @@ const fs = require("fs");
 
 //Synchronus way of reading file
 
-console.log('before')
+// console.log("before");
 
-let data = fs.readFileSync('f1.txt')
+// let data = fs.readFileSync("f1.txt");
 
-console.log(' ' + data)
+// console.log(" " + data);
 
-console.log('after')
+// console.log("after");
 
 //Asynchronous way of reading a file
 
