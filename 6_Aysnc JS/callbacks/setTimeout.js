@@ -1,5 +1,5 @@
 function greeting(name, role) {
-  console.log(`Hello, my name is ${name}`);
+  console.log(`Hello my name is ${name}`);
   console.log(`I'm a ${role}`);
 }
 
@@ -10,23 +10,23 @@ setTimeout(
   function (firstName) {
     console.log(firstName);
   },
-  3000,
+  4000,
   "Mrinal"
 );
 
-let count = 0;
+// let count = 0;
 
-// function creation
-let interval = setInterval(function () {
-  // increasing the count by 1
-  count += 1;
+// // function creation
+// let interval = setInterval(function () {
+//   // increasing the count by 1
+//   count += 1;
 
-  console.log(count);
+//   console.log(count);
 
-  // when count equals to 5, stop the function
-  if (count === 5) {
-    clearInterval(interval);
-  }
+//   // when count equals to 5, stop the function
+//   if (count === 5) {
+//     clearInterval(interval);
+//   }
 
-  // display the current time
-}, 2000);
+//   // display the current time
+// }, 2000);
