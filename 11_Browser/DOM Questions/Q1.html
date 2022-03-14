@@ -1,18 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-       <meta charset="UTF-8">
-       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Document</title>
-</head>
-<body>
-       <button> Say Hello</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Say Hello</button>
 
-       <script>
-              //Q1 on Clicking the Button append hello to the page
-               
-       </script>
+    <script>
+      //Q1 on Clicking the Button append hello to the page
 
-</body>
+       // this method is used to identify the Element
+      
+      //The Document method querySelector() returns the first Element within 
+      //the document that matches the specified selector, 
+      //or group of selectors. If no matches are found, null is returned.
+
+      let btn = document.querySelector("button");
+
+     
+      //addEventListener is a method provided by the DOM to basically 
+      //handle any event such as a mouse Click and the take action Accordingly
+
+
+
+      btn.addEventListener("click", function (e) {
+        let divElem = document.createElement("div");
+        //create Element lets you Create a new Element in the DOM
+        divElem.innerText = "Hello";
+        // inner text is a property by which you can access Text inisde an element
+
+        let body = document.querySelector("body");
+
+        body.appendChild(divElem);
+        // this method allows you to add new Children inside your selected element
+      });
+    </script>
+  </body>
 </html>
