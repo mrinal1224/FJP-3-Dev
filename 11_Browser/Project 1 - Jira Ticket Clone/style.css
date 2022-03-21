@@ -24,6 +24,9 @@ body{
        height: 3.5rem;
        width: 18rem;
        background-color: coral;
+       display: flex;
+       align-items: center;
+       justify-content: space-evenly;
 }
 
 
@@ -33,3 +36,23 @@ body{
        background-color: crimson;
 }
 
+.color{
+       height: 1.5rem;
+       width : 3rem
+}
+
+.lightpink{
+       background-color: lightpink;
+}
+
+.lightgreen{
+       background-color: lightgreen;
+}
+
+.lightblue{
+       background-color: lightblue;
+}
+
+.black {
+       background-color: black;
+}
