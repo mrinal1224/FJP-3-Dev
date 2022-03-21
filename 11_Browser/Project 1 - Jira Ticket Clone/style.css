@@ -1,0 +1,35 @@
+*{
+       box-sizing: border-box;
+}
+
+body{
+       margin: 0;
+       padding: 0;
+}
+
+
+.toolbox-cont{
+       height: 5rem;
+       background-color: black;
+       display: flex;
+       align-items: center;
+}
+
+.toolbox-cont>*{
+       margin-left: 4rem;
+       border-radius: 3px;
+}
+
+.toolbox-priority-cont{
+       height: 3.5rem;
+       width: 18rem;
+       background-color: coral;
+}
+
+
+.action-btn-cont{
+       height: 3.5rem;
+       width: 7rem;
+       background-color: crimson;
+}
+
