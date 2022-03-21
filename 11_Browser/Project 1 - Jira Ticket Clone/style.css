@@ -10,7 +10,7 @@ body{
 
 .toolbox-cont{
        height: 5rem;
-       background-color: black;
+       background-color: #4b4b4b;
        display: flex;
        align-items: center;
 }
@@ -23,7 +23,7 @@ body{
 .toolbox-priority-cont{
        height: 3.5rem;
        width: 18rem;
-       background-color: coral;
+       background-color: #3d3d3d;
        display: flex;
        align-items: center;
        justify-content:space-evenly;
@@ -33,7 +33,17 @@ body{
 .action-btn-cont{
        height: 3.5rem;
        width: 7rem;
-       background-color: crimson;
+       background-color: #3d3d3d;
+       display: flex;
+}
+
+.action-btn-cont>*{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       width: 50%;
+       font-size: 2rem;
+       color: #d1d8e0;
 }
 
 .color{
