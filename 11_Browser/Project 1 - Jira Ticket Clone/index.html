@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-       <meta charset="UTF-8">
-       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="./style.css">
-       
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-       <title>Advanced To do List</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
 
-</head>
-<body>
-
-       
-
-   <!--ToolBox Container-->
-      <div class="toolbox-cont">
-            <div class="toolbox-priority-cont">
-                 <div class="lightpink color"></div>
-                 <div class="lightgreen color"></div>
-                 <div class="lightblue color"></div>
-                 <div class="black color"></div>
-            </div> 
-
-            <div class="action-btn-cont">
-               <div class="add-btn">
-                     <i class="fa-solid fa-plus"></i>
-               </div>
-
-               <div class="remove-btn">
-                     <i class="fa-solid fa-xmark"></i>
-               </div>
-            </div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Advanced To do List</title>
+  </head>
+  <body>
+    <!--ToolBox Container-->
+    <div class="toolbox-cont">
+      <div class="toolbox-priority-cont">
+        <div class="lightpink color"></div>
+        <div class="lightgreen color"></div>
+        <div class="lightblue color"></div>
+        <div class="black color"></div>
       </div>
 
-      <!--Ticket Box-->
-      <div class="main-cont">
+      <div class="action-btn-cont">
+        <div class="add-btn">
+          <i class="fa-solid fa-plus"></i>
+        </div>
 
+        <div class="remove-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
       </div>
+    </div>
 
+    <!--Ticket Box-->
+    <div class="main-cont"></div>
 
-     <!--Modal Conatiner-->
-      <div class="modal-cont">
-            
+    <!--Modal Conatiner-->
+    <div class="modal-cont">
+      <textarea spellcheck="false" class="textarea-cont" placeholder="Enter Your Task"></textarea>
+
+      <div class="priority-colors-cont">
+        <div class="priority-color"></div>
+        <div class="priority-color"></div>
+        <div class="priority-color"></div>
+        <div class="priority-color"></div>
       </div>
+    </div>
 
-
-      <script src="./script.js"></script>
-
-       
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>

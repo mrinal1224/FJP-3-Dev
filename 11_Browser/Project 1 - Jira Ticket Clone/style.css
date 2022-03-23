@@ -1,93 +1,93 @@
-*{
-       box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-body{
-       margin: 0;
-       padding: 0;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-
-.toolbox-cont{
-       height: 5rem;
-       background-color: #4b4b4b;
-       display: flex;
-       align-items: center;
+.toolbox-cont {
+  height: 5rem;
+  background-color: #4b4b4b;
+  display: flex;
+  align-items: center;
 }
 
-.toolbox-cont>*{
-       margin-left: 4rem;
-       border-radius: 3px;
+.toolbox-cont > * {
+  margin-left: 4rem;
+  border-radius: 3px;
 }
 
-.toolbox-priority-cont{
-       height: 3.5rem;
-       width: 18rem;
-       background-color: #3d3d3d;
-       display: flex;
-       align-items: center;
-       justify-content:space-evenly;
+.toolbox-priority-cont {
+  height: 3.5rem;
+  width: 18rem;
+  background-color: #3d3d3d;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-
-.action-btn-cont{
-       height: 3.5rem;
-       width: 7rem;
-       background-color: #3d3d3d;
-       display: flex;
+.action-btn-cont {
+  height: 3.5rem;
+  width: 7rem;
+  background-color: #3d3d3d;
+  display: flex;
 }
 
-.action-btn-cont>*{
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       width: 50%;
-       font-size: 2rem;
-       color: #d1d8e0;
+.action-btn-cont > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  font-size: 2rem;
+  color: #d1d8e0;
 }
 
-.color{
-       height: 1.5rem;
-       width : 3rem
+.color {
+  height: 1.5rem;
+  width: 3rem;
 }
 
-.lightpink{
-       background-color: lightpink;
+.lightpink {
+  background-color: lightpink;
 }
 
-.lightgreen{
-       background-color: lightgreen;
+.lightgreen {
+  background-color: lightgreen;
 }
 
-.lightblue{
-       background-color: lightblue;
+.lightblue {
+  background-color: lightblue;
 }
 
 .black {
-       background-color: black;
+  background-color: black;
 }
 
-
-
-
-.action-btn-cont>*:hover{
-       background-color: lightcoral;
-}
-
-.toolbox-priority-cont>*:hover{
+.action-btn-cont > *:hover {
   background-color: lightcoral;
 }
 
-.modal-cont{
-       height: 10rem;
-       width: 10rem;
-       background: lightcoral;
-       position: absolute;
-       top: calc((100vh - 10rem) / 2);
-       left :calc((100vw - 10rem) / 2)
-
-       
+.toolbox-priority-cont > *:hover {
+  background-color: lightcoral;
 }
 
+.modal-cont {
+  height: 50vh;
+  width: 45vw;
+  background: lightcoral;
+  position: absolute;
+  top: calc((100vh - 50vh) / 2);
+  left: calc((100vw - 45vw) / 2);
+}
 
-
+.textarea-cont{
+       height: 100%;
+       width: 75%;
+       outline: none;
+       border: none;
+       background-color: lightblue;
+       resize: none;
+      
+}
