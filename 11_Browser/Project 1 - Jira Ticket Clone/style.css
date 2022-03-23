@@ -66,17 +66,17 @@ body {
 }
 
 .action-btn-cont > *:hover {
-  background-color: lightcoral;
+  background-color: #485460;
 }
 
 .toolbox-priority-cont > *:hover {
-  background-color: lightcoral;
+  background-color: #485460;
 }
 
 .modal-cont {
   height: 50vh;
   width: 45vw;
-  background: lightcoral;
+  background: lightblue;
   position: absolute;
   top: calc((100vh - 50vh) / 2);
   left: calc((100vw - 45vw) / 2);
@@ -88,9 +88,9 @@ body {
   width: 75%;
   outline: none;
   border: none;
-  background-color: lightblue;
   resize: none;
   padding: 2rem;
+  background-color: #dfe4ea;
   font-size: 2rem;
 }
 
@@ -102,6 +102,7 @@ body {
        flex-direction: column;
        justify-content: space-around;
        align-items: center;
+       background-color: #4b4b4b;
 
 
 }
@@ -112,8 +113,50 @@ body {
 }
 
 .active{
-       border: 5px solid red;
+  border: 5px solid #d1d8e0;
 }
+
+.main-cont{
+   display: flex;
+   gap:2rem;
+   justify-content: center;
+  
+}
+
+
+.ticket-cont{
+  height: 12rem;
+  width: 15rem;
+  background-color: #f1f2f6;
+  
+}
+
+
+.ticket-color{
+  height: 1rem;
+  background-color: black;
+}
+
+
+.ticket-id{
+  height:2rem ;
+  background-color: red
+}
+
+
+.task-area{
+  height: calc(100%  -1rem - 2rem);
+  font-size: 1.5rem;
+
+  padding:5px
+}
+
+
+
+
+
+
+
 
 
 
