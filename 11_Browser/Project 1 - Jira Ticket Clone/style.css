@@ -66,3 +66,28 @@ body{
 .black {
        background-color: black;
 }
+
+
+
+
+.action-btn-cont>*:hover{
+       background-color: lightcoral;
+}
+
+.toolbox-priority-cont>*:hover{
+  background-color: lightcoral;
+}
+
+.modal-cont{
+       height: 10rem;
+       width: 10rem;
+       background: lightcoral;
+       position: absolute;
+       top: calc((100vh - 10rem) / 2);
+       left :calc((100vw - 10rem) / 2)
+
+       
+}
+
+
+
