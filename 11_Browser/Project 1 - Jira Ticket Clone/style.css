@@ -110,7 +110,7 @@ body {
 }
 
 .active {
-  border: 5px solid #d1d8e0;
+  border: 5px solid red
 }
 
 .main-cont {
