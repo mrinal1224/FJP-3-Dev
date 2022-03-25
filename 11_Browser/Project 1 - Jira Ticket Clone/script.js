@@ -9,6 +9,9 @@ let modalPriorityColor = colors[colors.length - 1]; // black
 
 let allPriorityColors = document.querySelectorAll(".priority-color");
 
+let removeBtn = document.querySelector('.remove-btn')
+let removeFlag = false
+
 let addFlag = false;
 
 let taskAreaCont = document.querySelector('.textarea-cont')
@@ -59,8 +62,31 @@ function createTicket(ticketKaColorClass , task) {
   ticketCont.setAttribute("class", "ticket-cont");
 
   ticketCont.innerHTML = `<div class="ticket-color ${ticketKaColorClass} "></div>
-  <div class="ticket-id"></div>
+  <div class="ticket-id">${'#Sample id'}</div>
   <div class="task-area">${task}</div>`;
 
   mainCont.appendChild(ticketCont);
+
+  handleRemoval(ticketCont)
+}
+
+
+
+removeBtn.addEventListener('click' , function(){
+     removeFlag = !removeFlag
+     if(removeFlag==true){
+       removeBtn.style.color = 'red'
+     }
+     else{
+        removeBtn.style.color = 'blue'
+     }
+})
+
+
+function handleRemoval(ticket){
+         ticket.addEventListener('click' , function(){
+           if(removeFlag==true){
+             ticket.remove()
+           }
+         })
 }
