@@ -11,6 +11,8 @@ let allPriorityColors = document.querySelectorAll(".priority-color");
 
 let addFlag = false;
 
+let taskAreaCont = document.querySelector('.textarea-cont')
+
 addBtn.addEventListener("click", function (e) {
   //Display the Modal
 
@@ -45,19 +47,20 @@ modalCont.addEventListener("keydown", function (e) {
   let key = e.key;
 
   if (key == "Shift") {
-    createTicket(modalPriorityColor); // this function will generate the ticket
+    createTicket(modalPriorityColor , taskAreaCont.value); // this function will generate the ticket
     modalCont.style.display = "none";
     addFlag = false;
+    taskAreaCont.value = ''
   }
 });
 
-function createTicket(ticketKaColorClass) {
+function createTicket(ticketKaColorClass , task) {
   let ticketCont = document.createElement("div");
   ticketCont.setAttribute("class", "ticket-cont");
 
   ticketCont.innerHTML = `<div class="ticket-color ${ticketKaColorClass} "></div>
   <div class="ticket-id"></div>
-  <div class="task-area"></div>`;
+  <div class="task-area">${task}</div>`;
 
   mainCont.appendChild(ticketCont);
 }
