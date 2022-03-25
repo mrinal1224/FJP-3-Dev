@@ -94,70 +94,51 @@ body {
   font-size: 2rem;
 }
 
-
-.priority-colors-cont{
-       height: 100%;
-       width:25% ;
-       display: flex;
-       flex-direction: column;
-       justify-content: space-around;
-       align-items: center;
-       background-color: #4b4b4b;
-
-
+.priority-colors-cont {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #4b4b4b;
 }
 
-.priority-color{
-       height: 3rem;
-       width: 5rem;
+.priority-color {
+  height: 3rem;
+  width: 5rem;
 }
 
-.active{
+.active {
   border: 5px solid #d1d8e0;
 }
 
-.main-cont{
-   display: flex;
-   gap:2rem;
-   justify-content: center;
-  
+.main-cont {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  padding: 2rem;
+  flex-wrap: wrap;
 }
 
-
-.ticket-cont{
+.ticket-cont {
   height: 12rem;
   width: 15rem;
   background-color: #f1f2f6;
-  
 }
 
-
-.ticket-color{
+.ticket-color {
   height: 1rem;
   background-color: black;
 }
 
-
-.ticket-id{
-  height:2rem ;
-  background-color: red
+.ticket-id {
+  height: 2rem;
+  background-color: red;
 }
 
-
-.task-area{
-  height: calc(100%  -1rem - 2rem);
+.task-area {
+  height: calc(100% -1rem - 2rem);
   font-size: 1.5rem;
-
-  padding:5px
+  padding: 5px;
 }
-
-
-
-
-
-
-
-
-
-
-
