@@ -78,7 +78,7 @@ removeBtn.addEventListener('click' , function(){
        removeBtn.style.color = 'red'
      }
      else{
-        removeBtn.style.color = 'blue'
+        removeBtn.style.color = 'white'
      }
 })
 
