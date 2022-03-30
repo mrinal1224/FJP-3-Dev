@@ -110,7 +110,7 @@ body {
 }
 
 .active {
-  border: 5px solid red
+  border: 5px solid red;
 }
 
 .main-cont {
@@ -137,19 +137,17 @@ body {
 }
 
 .task-area {
-  height: calc(100% -1rem - 2rem);
+  height: calc(100% -1rem - 2rem - 2rem);
   font-size: 1.5rem;
   padding: 5px;
+  outline: none;
 }
 
-.ticket-lock{
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 75px;
-    font-size: 1.5rem;
-    margin-right: 5px;
-
-   
-
-
+.ticket-lock {
+  height: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 75px;
+  font-size: 1.5rem;
+  margin-right: 5px;
 }

@@ -9,12 +9,15 @@ let modalPriorityColor = colors[colors.length - 1]; // black
 
 let allPriorityColors = document.querySelectorAll(".priority-color");
 
-let removeBtn = document.querySelector('.remove-btn')
-let removeFlag = false
+let removeBtn = document.querySelector(".remove-btn");
+let removeFlag = false;
 
 let addFlag = false;
 
-let taskAreaCont = document.querySelector('.textarea-cont')
+let taskAreaCont = document.querySelector(".textarea-cont");
+
+let lockClass = "fa-lock";
+let unlockClass = "fa-lock-open";
 
 addBtn.addEventListener("click", function (e) {
   //Display the Modal
@@ -50,14 +53,14 @@ modalCont.addEventListener("keydown", function (e) {
   let key = e.key;
 
   if (key == "Shift") {
-    createTicket(modalPriorityColor , taskAreaCont.value); // this function will generate the ticket
+    createTicket(modalPriorityColor, taskAreaCont.value); // this function will generate the ticket
     modalCont.style.display = "none";
     addFlag = false;
-    taskAreaCont.value = ''
+    taskAreaCont.value = "";
   }
 });
 
-function createTicket(ticketKaColorClass , task) {
+function createTicket(ticketKaColorClass, task) {
   let ticketCont = document.createElement("div");
   ticketCont.setAttribute("class", "ticket-cont");
 
@@ -70,31 +73,48 @@ function createTicket(ticketKaColorClass , task) {
 
   mainCont.appendChild(ticketCont);
 
-  handleRemoval(ticketCont)
+  handleRemoval(ticketCont);
+
+  handleLock(ticketCont);
 }
 
-
-
-removeBtn.addEventListener('click' , function(){
-     removeFlag = !removeFlag
-     if(removeFlag==true){
-       removeBtn.style.color = 'red'
-     }
-     else{
-        removeBtn.style.color = 'white'
-     }
-})
+removeBtn.addEventListener("click", function () {
+  removeFlag = !removeFlag;
+  if (removeFlag == true) {
+    removeBtn.style.color = "red";
+  } else {
+    removeBtn.style.color = "white";
+  }
+});
 
 // Remove Tickets Function
-function handleRemoval(ticket){
-         ticket.addEventListener('click' , function(){
-           if(removeFlag==true){
-             ticket.remove()
-           }
-         })
+function handleRemoval(ticket) {
+  ticket.addEventListener("click", function () {
+    if (removeFlag == true) {
+      ticket.remove();
+    }
+  });
 }
 
+// Lock and unlock Tickets
 
+function handleLock(ticket) {
+  let ticketLockElem = ticket.querySelector(".ticket-lock");
 
-// Lock and unlock Tickets 
+  let ticketLock = ticketLockElem.children[0];
 
+  let ticketTaskArea = ticket.querySelector('.task-area')
+
+  ticketLock.addEventListener("click", function (e) {
+    if (ticketLock.classList.contains(lockClass)) {
+      ticketLock.classList.remove(lockClass);
+      ticketLock.classList.add(unlockClass);
+      ticketTaskArea.setAttribute('contenteditable' , 'true')
+
+    } else {
+      ticketLock.classList.remove(unlockClass);
+      ticketLock.classList.add(lockClass);
+      ticketTaskArea.setAttribute('contenteditable' , 'false')
+    }
+  });
+}
