@@ -4,7 +4,7 @@ let modalCont = document.querySelector(".modal-cont");
 
 let mainCont = document.querySelector(".main-cont");
 
-let colors = ["lightpink", "lightblue", "lightgreen", "black"];
+let colors = ["lightpink", "lightgreen", "lightblue", "black"];
 let modalPriorityColor = colors[colors.length - 1]; // black
 
 let allPriorityColors = document.querySelectorAll(".priority-color");
@@ -75,7 +75,12 @@ function createTicket(ticketKaColorClass, task) {
 
   handleRemoval(ticketCont);
 
-  handleLock(ticketCont);
+  handleColor(ticketCont)
+   
+
+  handleLock(ticketCont)
+
+
 }
 
 removeBtn.addEventListener("click", function () {
@@ -110,6 +115,7 @@ function handleLock(ticket) {
       ticketLock.classList.remove(lockClass);
       ticketLock.classList.add(unlockClass);
       ticketTaskArea.setAttribute('contenteditable' , 'true')
+      
 
     } else {
       ticketLock.classList.remove(unlockClass);
@@ -117,4 +123,29 @@ function handleLock(ticket) {
       ticketTaskArea.setAttribute('contenteditable' , 'false')
     }
   });
+}
+
+
+function handleColor(ticket){
+
+
+    let ticketColorBand = ticket.querySelector('.ticket-color')
+
+    ticketColorBand.addEventListener('click' , function(e){
+          let currentTicketColor = ticketColorBand.classList[1]
+
+          let currentTicketColoridx = colors.findIndex(function(color){
+            return currentTicketColor === color
+          })
+
+          currentTicketColoridx++
+
+          let newTicketColorIdx = currentTicketColoridx%colors.length
+          let newTicketColor = colors[newTicketColorIdx]
+
+          ticketColorBand.classList.remove(currentTicketColor)
+          ticketColorBand.classList.add(newTicketColor)
+
+
+    })
 }
