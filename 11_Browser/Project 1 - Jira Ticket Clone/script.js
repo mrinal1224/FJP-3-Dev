@@ -61,9 +61,12 @@ function createTicket(ticketKaColorClass , task) {
   let ticketCont = document.createElement("div");
   ticketCont.setAttribute("class", "ticket-cont");
 
-  ticketCont.innerHTML = `<div class="ticket-color ${ticketKaColorClass} "></div>
-  <div class="ticket-id">${'#Sample id'}</div>
-  <div class="task-area">${task}</div>`;
+  ticketCont.innerHTML = ` <div class="ticket-color ${ticketKaColorClass}"></div>
+  <div class="ticket-id">Sample id</div>
+  <div class="task-area">${task}</div>
+  <div class="ticket-lock">
+    <i class="fa-solid fa-lock"></i>
+  </div>`;
 
   mainCont.appendChild(ticketCont);
 
@@ -82,7 +85,7 @@ removeBtn.addEventListener('click' , function(){
      }
 })
 
-
+// Remove Tickets Function
 function handleRemoval(ticket){
          ticket.addEventListener('click' , function(){
            if(removeFlag==true){
@@ -90,3 +93,8 @@ function handleRemoval(ticket){
            }
          })
 }
+
+
+
+// Lock and unlock Tickets 
+

@@ -141,3 +141,15 @@ body {
   font-size: 1.5rem;
   padding: 5px;
 }
+
+.ticket-lock{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 75px;
+    font-size: 1.5rem;
+    margin-right: 5px;
+
+   
+
+
+}
