@@ -15,40 +15,50 @@ let removeFlag = false;
 let addFlag = false;
 
 let taskAreaCont = document.querySelector(".textarea-cont");
-let toolBoxColors = document.querySelectorAll('.color')
+let toolBoxColors = document.querySelectorAll(".color");
 
 let lockClass = "fa-lock";
 let unlockClass = "fa-lock-open";
 
-let ticketsArr = []
-
-
+let ticketsArr = []; // which will store all the tickets as objects
 
 //Filter tickets with respect to colors
 
-for(let i=0 ; i<toolBoxColors.length ; i++){
-  toolBoxColors[i].addEventListener('click' , function(e){
-    let currentToolBoxColor =  toolBoxColors[i].classList[0]
+for (let i = 0; i < toolBoxColors.length; i++) {
+  toolBoxColors[i].addEventListener("click", function (e) {
+    let currentToolBoxColor = toolBoxColors[i].classList[0]; // color
     //console.log(currentToolBoxColor)
 
-
-    let filteredTickets = ticketsArr.filter(function(ticketObj){
-      return currentToolBoxColor === ticketObj.ticketColor
-    })
+    let filteredTickets = ticketsArr.filter(function (ticketObj) {
+      return currentToolBoxColor === ticketObj.ticketColor;
+    });
 
     // remove previous Tickets
-     let allTickets = document.querySelectorAll(".ticket-cont")
+    let allTickets = document.querySelectorAll(".ticket-cont");
 
-     for(let i=0 ; i<allTickets.length ; i++){
-        allTickets[i].remove()
-     }
-       // filtered tickets Di
-     filteredTickets.forEach(function(filteredObj){
-             createTicket(filteredObj.ticketColor , filteredObj.ticketTask , filteredObj.ticketID)
-     })
+    for (let i = 0; i < allTickets.length; i++) {
+      allTickets[i].remove();
+    }
+    // filtered tickets Di
+    filteredTickets.forEach(function (filteredObj) {
+      createTicket(
+        filteredObj.ticketColor,
+        filteredObj.ticketTask,
+        filteredObj.ticketID
+      );
+    });
+  });
 
+  toolBoxColors[i].addEventListener('dblclick' , function(e){
+    let allTickets = document.querySelectorAll(".ticket-cont");
 
+    for (let i = 0; i < allTickets.length; i++) {
+      allTickets[i].remove();
+    }
 
+    ticketsArr.forEach(function(ticketObj){
+      createTicket(ticketObj.ticketColor , ticketObj.ticketTask , ticketObj.ticketID)
+    })
   })
 }
 
@@ -93,13 +103,13 @@ modalCont.addEventListener("keydown", function (e) {
   }
 });
 
-function createTicket(ticketColor, ticketTask , ticketID) {
-  let id = ticketID || shortid()
+function createTicket(ticketColor, ticketTask, ticketID) {
+  let id = ticketID || shortid();
   let ticketCont = document.createElement("div");
   ticketCont.setAttribute("class", "ticket-cont");
 
   ticketCont.innerHTML = ` <div class="ticket-color ${ticketColor}"></div>
-  <div class="ticket-id">#${ticketID}</div>
+  <div class="ticket-id">#${id}</div>
   <div class="task-area">${ticketTask}</div>
   <div class="ticket-lock">
     <i class="fa-solid fa-lock"></i>
@@ -109,19 +119,13 @@ function createTicket(ticketColor, ticketTask , ticketID) {
 
   handleRemoval(ticketCont);
 
-  handleColor(ticketCont)
-   
+  handleColor(ticketCont);
 
-  handleLock(ticketCont)
+  handleLock(ticketCont);
 
-
-
-   if(!ticketID){
-    ticketsArr.push({ticketColor , ticketTask , ticketID:id})
-   }
- 
-
-
+  if (!ticketID) {
+    ticketsArr.push({ ticketColor, ticketTask, ticketID: id });
+  }
 }
 
 removeBtn.addEventListener("click", function () {
@@ -149,44 +153,37 @@ function handleLock(ticket) {
 
   let ticketLock = ticketLockElem.children[0];
 
-  let ticketTaskArea = ticket.querySelector('.task-area')
+  let ticketTaskArea = ticket.querySelector(".task-area");
 
   ticketLock.addEventListener("click", function (e) {
     if (ticketLock.classList.contains(lockClass)) {
       ticketLock.classList.remove(lockClass);
       ticketLock.classList.add(unlockClass);
-      ticketTaskArea.setAttribute('contenteditable' , 'true')
-      
-
+      ticketTaskArea.setAttribute("contenteditable", "true");
     } else {
       ticketLock.classList.remove(unlockClass);
       ticketLock.classList.add(lockClass);
-      ticketTaskArea.setAttribute('contenteditable' , 'false')
+      ticketTaskArea.setAttribute("contenteditable", "false");
     }
   });
 }
 
+function handleColor(ticket) {
+  let ticketColorBand = ticket.querySelector(".ticket-color");
 
-function handleColor(ticket){
+  ticketColorBand.addEventListener("click", function (e) {
+    let currentTicketColor = ticketColorBand.classList[1];
 
+    let currentTicketColoridx = colors.findIndex(function (color) {
+      return currentTicketColor === color;
+    });
 
-    let ticketColorBand = ticket.querySelector('.ticket-color')
+    currentTicketColoridx++;
 
-    ticketColorBand.addEventListener('click' , function(e){
-          let currentTicketColor = ticketColorBand.classList[1]
+    let newTicketColorIdx = currentTicketColoridx % colors.length;
+    let newTicketColor = colors[newTicketColorIdx];
 
-          let currentTicketColoridx = colors.findIndex(function(color){
-            return currentTicketColor === color
-          })
-
-          currentTicketColoridx++
-
-          let newTicketColorIdx = currentTicketColoridx%colors.length
-          let newTicketColor = colors[newTicketColorIdx]
-
-          ticketColorBand.classList.remove(currentTicketColor)
-          ticketColorBand.classList.add(newTicketColor)
-
-
-    })
+    ticketColorBand.classList.remove(currentTicketColor);
+    ticketColorBand.classList.add(newTicketColor);
+  });
 }
