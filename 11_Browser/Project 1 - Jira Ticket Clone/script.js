@@ -15,9 +15,23 @@ let removeFlag = false;
 let addFlag = false;
 
 let taskAreaCont = document.querySelector(".textarea-cont");
+let toolBoxColors = document.querySelectorAll('.color')
 
 let lockClass = "fa-lock";
 let unlockClass = "fa-lock-open";
+
+
+
+//Filter tickets with respect to colors
+
+for(let i=0 ; i<toolBoxColors.length ; i++){
+  toolBoxColors[i].addEventListener('click' , function(e){
+    let currentToolBoxColor =  toolBoxColors[i].classList[0]
+    ///console.log(currentToolBoxColor)
+
+    
+  })
+}
 
 addBtn.addEventListener("click", function (e) {
   //Display the Modal
