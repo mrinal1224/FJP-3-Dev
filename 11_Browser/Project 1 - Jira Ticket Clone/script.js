@@ -20,6 +20,8 @@ let toolBoxColors = document.querySelectorAll('.color')
 let lockClass = "fa-lock";
 let unlockClass = "fa-lock-open";
 
+let ticketsArr = []
+
 
 
 //Filter tickets with respect to colors
@@ -27,9 +29,26 @@ let unlockClass = "fa-lock-open";
 for(let i=0 ; i<toolBoxColors.length ; i++){
   toolBoxColors[i].addEventListener('click' , function(e){
     let currentToolBoxColor =  toolBoxColors[i].classList[0]
-    ///console.log(currentToolBoxColor)
+    //console.log(currentToolBoxColor)
 
-    
+
+    let filteredTickets = ticketsArr.filter(function(ticketObj){
+      return currentToolBoxColor === ticketObj.ticketColor
+    })
+
+    // remove previous Tickets
+     let allTickets = document.querySelectorAll(".ticket-cont")
+
+     for(let i=0 ; i<allTickets.length ; i++){
+        allTickets[i].remove()
+     }
+       // filtered tickets Di
+     filteredTickets.forEach(function(filteredObj){
+             createTicket(filteredObj.ticketColor , filteredObj.ticketTask , filteredObj.ticketID)
+     })
+
+
+
   })
 }
 
@@ -67,20 +86,21 @@ modalCont.addEventListener("keydown", function (e) {
   let key = e.key;
 
   if (key == "Shift") {
-    createTicket(modalPriorityColor, taskAreaCont.value , shortid()); // this function will generate the ticket
+    createTicket(modalPriorityColor, taskAreaCont.value); // this function will generate the ticket
     modalCont.style.display = "none";
     addFlag = false;
     taskAreaCont.value = "";
   }
 });
 
-function createTicket(ticketKaColorClass, task , ticketId) {
+function createTicket(ticketColor, ticketTask , ticketID) {
+  let id = ticketID || shortid()
   let ticketCont = document.createElement("div");
   ticketCont.setAttribute("class", "ticket-cont");
 
-  ticketCont.innerHTML = ` <div class="ticket-color ${ticketKaColorClass}"></div>
-  <div class="ticket-id">#${ticketId}</div>
-  <div class="task-area">${task}</div>
+  ticketCont.innerHTML = ` <div class="ticket-color ${ticketColor}"></div>
+  <div class="ticket-id">#${ticketID}</div>
+  <div class="task-area">${ticketTask}</div>
   <div class="ticket-lock">
     <i class="fa-solid fa-lock"></i>
   </div>`;
@@ -93,6 +113,13 @@ function createTicket(ticketKaColorClass, task , ticketId) {
    
 
   handleLock(ticketCont)
+
+
+
+   if(!ticketID){
+    ticketsArr.push({ticketColor , ticketTask , ticketID:id})
+   }
+ 
 
 
 }
