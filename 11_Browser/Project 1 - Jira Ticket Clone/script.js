@@ -24,6 +24,16 @@ let ticketsArr = []; // which will store all the tickets as objects
 
 //Filter tickets with respect to colors
 
+
+// get all tickets from local Storage
+
+if(localStorage.getItem('tickets')){
+  ticketsArr = JSON.parse(localStorage.getItem('tickets'))
+  ticketsArr.forEach(function(ticket){
+    createTicket(ticket.ticketColor , ticket.ticketTask , ticket.ticketID)
+  })
+}
+
 for (let i = 0; i < toolBoxColors.length; i++) {
   toolBoxColors[i].addEventListener("click", function (e) {
     let currentToolBoxColor = toolBoxColors[i].classList[0]; // color
@@ -58,6 +68,7 @@ for (let i = 0; i < toolBoxColors.length; i++) {
 
     ticketsArr.forEach(function(ticketObj){
       createTicket(ticketObj.ticketColor , ticketObj.ticketTask , ticketObj.ticketID)
+      
     })
   })
 }
@@ -125,6 +136,7 @@ function createTicket(ticketColor, ticketTask, ticketID) {
 
   if (!ticketID) {
     ticketsArr.push({ ticketColor, ticketTask, ticketID: id });
+    localStorage.setItem('tickets' , JSON.stringify(ticketsArr) )
   }
 }
 
