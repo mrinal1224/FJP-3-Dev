@@ -128,7 +128,7 @@ function createTicket(ticketColor, ticketTask, ticketID) {
 
   mainCont.appendChild(ticketCont);
 
-  handleRemoval(ticketCont);
+  handleRemoval(ticketCont , id);
 
   handleColor(ticketCont);
 
@@ -150,11 +150,22 @@ removeBtn.addEventListener("click", function () {
 });
 
 // Remove Tickets Function
-function handleRemoval(ticket) {
+function handleRemoval(ticket , id) {
   ticket.addEventListener("click", function () {
-    if (removeFlag == true) {
-      ticket.remove();
-    }
+    if (!removeFlag) return
+
+    let idx = getTicketIdx(id) // idx
+
+    // localStorgae removal of ticket
+
+    ticketsArr.splice(idx , 1)
+
+    let strTicketArray = JSON.stringify(ticketsArr)
+
+    localStorage.setItem('tickets' , strTicketArray)
+    
+    ticket.remove();
+    
   });
 }
 
@@ -198,4 +209,13 @@ function handleColor(ticket) {
     ticketColorBand.classList.remove(currentTicketColor);
     ticketColorBand.classList.add(newTicketColor);
   });
+}
+
+
+function getTicketIdx(id){
+     let ticketIdx = ticketsArr.findIndex(function(ticketObj){
+             return ticketObj.ticketID === id
+     }) 
+     
+     return ticketIdx
 }
