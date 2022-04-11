@@ -28,6 +28,10 @@
 
 
 
+
+
+
+
 //Nested Objects - 
 let obj = {
        name: "Adam",
@@ -43,13 +47,15 @@ let obj = {
 
 let {name} = obj
 
-let {address : {country:cd}} = obj
+let {address : {country:cd} , address : {state : {pincode}}} = obj
 
-let {address : {state : {pincode}}} = obj
+let {address : {state : {stateName}}} = obj
 
 console.log(cd)
 
 console.log(pincode)
+
+console.log(stateName)
 
 
 console.log(name)
