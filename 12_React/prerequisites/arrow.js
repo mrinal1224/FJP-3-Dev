@@ -1,23 +1,50 @@
-// write a function to add two numbers and print their sum (function Expression)
 
 
-let add =(a , b)=>{
-      console.log(a+b)
+// // write a function to add two numbers and print their sum (function Expression)
+
+
+// let add =(a , b)=>{
+//       console.log(a+b)
+// }
+
+// add(3 , 4)
+
+
+
+
+// var regularFunction = function(name){
+//        console.log(`I am ${name}`)
+// }
+
+
+// let arrowFunction = name => console.log(`I am ${name}`)
+
+
+
+// regularFunction('Adam')
+
+// arrowFunction('Steve')
+
+
+let test = () => {
+       console.log(this) // {}
 }
-
-add(3 , 4)
-
-
-let regularFunction = function(name){
-       console.log(`I am ${name}`)
-}
+ test()
 
 
-let arrowFunction = (name) =>{
-       console.log(`I am ${name}`)
-}
+// let person = {
+//        name : 'Adam',
+//        age : 27 ,
+
+//        showDetails : function(){
+//               console.log(this.name + ' ' + this.age)
+//        },
+
+//        showDetailsArrow : ()=>{
+//               console.log(this.name + ' ' + this.age)
+//        }
+// }
 
 
-regularFunction('Adam')
-
-arrowFunction('Steve')
+// person.showDetails()
+// person.showDetailsArrow()
