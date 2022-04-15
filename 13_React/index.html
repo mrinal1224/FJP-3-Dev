@@ -1,64 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-       <meta charset="UTF-8">
-       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Document</title>
-       <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-       <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-       <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 
-</head>
-<body>
+  <script type="text/babel">
+    //     let ele = document.createElement('h1')
+    //     ele.innerText = 'Hello'
 
-       <div id="root">
-         
-       </div>
-       
-</body>
+    //      let root = document.getElementById('root')
 
-<script type="text/babel">
-  
-//     let ele = document.createElement('h1')
-//     ele.innerText = 'Hello'
+    // //     root.appendChild(ele)
 
-//      let root = document.getElementById('root')
+    // let ele = React.createElement('h1' , {
+    //        children :  ['Hello']
+    // })
 
-// //     root.appendChild(ele)
+    // //console.log(ele)
 
+    // JSX
 
+    function Child() {
+      return <h1>Hello</h1>;
+    }
 
-// let ele = React.createElement('h1' , {
-//        children :  ['Hello']
-// })
+    function Child2() {
+      return <h1>GoodBye</h1>;
+    }
 
-// //console.log(ele)
+    function Parent() {
+      return (
+        <>
+          <Child />
+          <Child2 />
+        </>
+      );
+    }
 
-
- 
-
-
-
-// JSX
-
-  function Element(){
-         return(
-
-                <h1>Hello</h1>
-                
-         )
-  }
-
-  ReactDOM.render( <Element/>, document.getElementById('root'))
-
-
-
-
-
-
-
-
-
-</script>
+    ReactDOM.render(<Parent />, document.getElementById("root"));
+  </script>
 </html>
