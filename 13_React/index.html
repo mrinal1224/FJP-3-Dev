@@ -35,23 +35,27 @@
 
     // JSX
 
-    function Child() {
-      return <h1>Hello</h1>;
+    function Child({ name = "Mrinal", age, marks }) {
+      return (
+        <>
+          <h1>Hello {name}</h1>
+          <h2>{marks}</h2>
+          <h3>{age}</h3>
+        </>
+      );
     }
 
-    function Child2() {
-      return <h1>GoodBye</h1>;
+    function Child2({ place }) {
+      return <h1>GoodBye {place}</h1>;
     }
 
     function Parent() {
       return (
         <>
-          <Child />
+          <Child age="23" marks="70" />
+          <Child2 place="Delhi" />
+          <Child name="Steve" />
           <Child2 />
-          <Child />
-          <Child2 />
-
-
         </>
       );
     }
