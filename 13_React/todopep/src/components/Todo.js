@@ -51,7 +51,7 @@ export class Todo extends Component {
           {this.state.tasks.map((taskObj) => (
             <li>
               <p>{taskObj.task}</p>
-              <button onClick={() => this.handleDelete(taskObj.id)}>
+              <button onClick={()=>this.handleDelete(taskObj.id)}>
                 Delete
               </button>
             </li>
@@ -61,5 +61,8 @@ export class Todo extends Component {
     );
   }
 }
+
+
+
 
 export default Todo;
