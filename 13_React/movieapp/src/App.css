@@ -58,14 +58,15 @@
 
   top : 45vh;
   left : 5vw;
+  font-size: 45px;
   
-  color: red;
+  color:white;
 }
 
 
 .banner-text{
   position:absolute;
-  color: red;
+  color: white;
   top:55vh;
   height: 4.5rem;
   margin-left: 5vw;
