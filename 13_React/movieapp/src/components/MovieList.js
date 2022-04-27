@@ -30,6 +30,9 @@ export class MovieList extends Component {
                <div className="button-wrapper" style={{display : 'flex' , justifyContent:'center'}}>
                <a href="#" className="btn btn-primary movies-button text-center">Add to Favourites</a>
                   </div>
+
+
+                  
     
 
             
