@@ -81,3 +81,26 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+
+.movie-card{
+  margin: 1rem;
+  width: 20vw;
+  color: white;
+  position: relative;
+
+}
+
+
+.movie-title{
+  position : absolute;
+  top : 1rem;
+  left : 1rem;
+}
+
+.movies-button{
+  position : absolute;
+  bottom : 2rem;
+ 
+
+}

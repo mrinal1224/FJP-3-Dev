@@ -10,7 +10,7 @@ export class MovieList extends Component {
       <>
         <div>
           <h3 className="text-center">
-            {" "}
+            
             <strong>Trending</strong>
           </h3>
         </div>
@@ -25,7 +25,14 @@ export class MovieList extends Component {
                 alt="..."
               />
 
-              <h5 className="card-title banner-title">{movieElem.title}</h5>
+              <h5 className="card-title movie-title">{movieElem.title}</h5>
+
+               <div className="button-wrapper" style={{display : 'flex' , justifyContent:'center'}}>
+               <a href="#" className="btn btn-primary movies-button text-center">Add to Favourites</a>
+                  </div>
+    
+
+            
             </div>
           ))}
         </div>
