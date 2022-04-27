@@ -8,6 +8,7 @@ export class MovieList extends Component {
 
     this.state = {
       hover: "",
+      parr: [1],
     };
   }
   render() {
@@ -61,21 +62,15 @@ export class MovieList extends Component {
                   Previous
                 </a>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  1
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  2
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  3
-                </a>
-              </li>
+
+              {this.state.parr.map((value) => (
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    {value}
+                  </a>
+                </li>
+              ))}
+
               <li class="page-item">
                 <a class="page-link" href="#">
                   Next
