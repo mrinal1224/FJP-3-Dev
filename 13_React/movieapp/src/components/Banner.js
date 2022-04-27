@@ -6,7 +6,7 @@ export class Banner extends Component {
 
   
   render() {
-      let moviesElem = movies.results[Math.floor((Math.random() * 10) + 1)]
+      let moviesElem = movies.results[Math.floor((Math.random() * 10))]
       let backDrop =  moviesElem.backdrop_path
     return (
        <div className="card banner-card" >
