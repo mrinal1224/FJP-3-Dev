@@ -61,6 +61,24 @@ export class MovieList extends Component {
     );
   };
 
+
+  handlePrevious =()=>{
+      if(this.state.currPage!=1){
+        this.setState({
+          currPage : this.state.currPage-1
+        } , this.changeMovies)
+      }
+  }
+
+
+  handlePageClick =(value)=>{
+       if(value!=this.state.currPage){
+         this.setState({
+           currPage : value
+         } , this.changeMovies)
+       }
+  }
+
   render() {
     console.log("render second");
 
@@ -108,14 +126,14 @@ export class MovieList extends Component {
           <nav aria-label="Page navigation example">
             <ul className="pagination">
               <li className="page-item">
-                <a className="page-link" href="#">
+                <a className="page-link" onClick={this.handlePrevious}>
                   Previous
                 </a>
               </li>
 
               {this.state.parr.map((value) => (
                 <li class="page-item">
-                  <a class="page-link" href="#">
+                  <a class="page-link" onClick={()=> this.handlePageClick(value)}>
                     {value}
                   </a>
                 </li>
