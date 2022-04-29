@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { movies } from "../movieData";
+ import { movies } from "../movieData";
 
 import axios from 'axios'
 
@@ -12,19 +12,26 @@ export class MovieList extends Component {
     this.state = {
       hover: "",
       parr: [1],
+      movies : []
     };
   }
 
   async componentDidMount(){
-         const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=0b5415eb9bf023d556ef265b425e0e4a&language=en-US&page=1`)
+         const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=0b5415eb9bf023d556ef265b425e0e4a&language=en-US&page=3`)
          let movieData = res.data
          console.log(movieData)
 
+         this.setState({
+           movies : [...movieData.results]
+         })
+
          console.log('mounting done with CDM third')
   }
+
+
+
   render() {
     console.log('render second')
-    let moviesArr = movies.results;
 
     return (
       <>
@@ -35,7 +42,7 @@ export class MovieList extends Component {
         </div>
 
         <div className="movies-list">
-          {moviesArr.map((movieElem) => (
+          {this.state.movies.map((movieElem) => (
             <div
               className="card movie-card"
               onMouseEnter={() => this.setState({ hover: movieElem.id })}
