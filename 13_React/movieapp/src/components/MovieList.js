@@ -12,12 +12,13 @@ export class MovieList extends Component {
     this.state = {
       hover: "",
       parr: [1],
-      movies : []
+      movies : [],
+      currPage : 1
     };
   }
 
   async componentDidMount(){
-         const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=0b5415eb9bf023d556ef265b425e0e4a&language=en-US&page=3`)
+         const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=0b5415eb9bf023d556ef265b425e0e4a&language=en-US&page=${this.state.currPage}`)
          let movieData = res.data
          console.log(movieData)
 
@@ -26,6 +27,35 @@ export class MovieList extends Component {
          })
 
          console.log('mounting done with CDM third')
+  }
+
+  changeMovies = async()=>{
+    const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=0b5415eb9bf023d556ef265b425e0e4a&language=en-US&page=${this.state.currPage}`)
+    let movieData = res.data
+    console.log(movieData)
+
+    this.setState({
+      movies : [...movieData.results]
+    })
+  }
+
+  handleNext=()=>{
+         let tempArr = []
+
+
+         for(let i=1 ; i<=this.state.parr.length+1 ; i++){
+           tempArr.push(i)
+          
+         }
+
+         console.log(tempArr)
+
+         this.setState({
+            parr:[...tempArr],
+            currPage:this.state.currPage+1
+         }, this.changeMovies)
+
+         
   }
 
 
@@ -91,7 +121,7 @@ export class MovieList extends Component {
               ))}
 
               <li className="page-item">
-                <a className="page-link" href="#">
+                <a className="page-link" onClick={this.handleNext}>
                   Next
                 </a>
               </li>
