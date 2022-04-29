@@ -6,7 +6,7 @@ import axios from 'axios'
 
 export class MovieList extends Component {
   constructor() {
-    console.log('construtor')
+    console.log('construtor first')
     super();
 
     this.state = {
@@ -19,9 +19,11 @@ export class MovieList extends Component {
          const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=0b5415eb9bf023d556ef265b425e0e4a&language=en-US&page=1`)
          let movieData = res.data
          console.log(movieData)
+
+         console.log('mounting done with CDM third')
   }
   render() {
-    console.log('render')
+    console.log('render second')
     let moviesArr = movies.results;
 
     return (
@@ -66,9 +68,9 @@ export class MovieList extends Component {
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <nav aria-label="Page navigation example">
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link" href="#">
+            <ul className="pagination">
+              <li className="page-item">
+                <a className="page-link" href="#">
                   Previous
                 </a>
               </li>
@@ -81,8 +83,8 @@ export class MovieList extends Component {
                 </li>
               ))}
 
-              <li class="page-item">
-                <a class="page-link" href="#">
+              <li className="page-item">
+                <a className="page-link" href="#">
                   Next
                 </a>
               </li>
