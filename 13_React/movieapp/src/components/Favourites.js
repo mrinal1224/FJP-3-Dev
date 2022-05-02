@@ -3,6 +3,16 @@ import React, { Component } from "react";
 import { movies } from "../movieData";
 
 export class Favourites extends Component {
+
+       constructor(){
+              super()
+
+              this.state={
+                     genres : []
+              }
+       }
+
+       
   render() {
     const moviesArr = movies.results;
     console.log(moviesArr);
@@ -27,21 +37,44 @@ export class Favourites extends Component {
       10752: "War",
       37: "Western",
     };
+
+     let tempArr = []
+
+     moviesArr.map((movieObj)=>{
+            if(!tempArr.includes(genreids[movieObj.genre_ids[0]])){
+                   tempArr.push(genreids[movieObj.genre_ids[0]])
+            }
+     })
+
+     tempArr.unshift('All genres')
+
+
+    
+
+
+
+     
+
+
     return (
       <div className="main">
         <div className="row">
           <div className="col-3">
             <ul className="list-group genre-selector">
-              <li class="list-group-item">Favourites</li>
-              <li class="list-group-item">Action</li>
-              <li class="list-group-item">Action</li>
-              <li class="list-group-item">Action</li>
-              <li class="list-group-item">Action</li>
+
+                   {
+                          tempArr.map((genres)=>(
+                            <li class="list-group-item">{genres}</li>
+             
+                          ))
+                   }
+
+              
             </ul>
           </div>
           <div className="col-9 favourites-table">
             <div className="row">
-              <input type="text" className="input-group-text col" />
+              <input placeholder='Search' type="text" className="input-group-text col" />
               <input type="number" className="input-group-text col" />
             </div>
 
@@ -51,7 +84,7 @@ export class Favourites extends Component {
                   <tr>
                      <th></th>
                     <th scope="col">Title</th>
-                    <th scope="col">genre</th>
+                    <th scope="col">Genre</th>
                     <th scope="col">Popularity</th>
                     <th scope="col">Ratings</th>
                     <th></th>
