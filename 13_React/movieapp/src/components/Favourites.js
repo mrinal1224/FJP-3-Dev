@@ -49,10 +49,12 @@ export class Favourites extends Component {
               <table class="table">
                 <thead>
                   <tr>
+                     <th></th>
                     <th scope="col">Title</th>
                     <th scope="col">genre</th>
                     <th scope="col">Popularity</th>
                     <th scope="col">Ratings</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
