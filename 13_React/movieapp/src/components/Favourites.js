@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 
+import {movies} from '../movieData'
+
 export class Favourites extends Component {
   render() {
+         const moviesArr = movies.results
+         console.log(moviesArr)
+         let genreids = {28:'Action',12:'Adventure',16:'Animation',35:'Comedy',80:'Crime',99:'Documentary',18:'Drama',10751:'Family',14:'Fantasy',36:'History',
+       27:'Horror',10402:'Music',9648:'Mystery',10749:'Romance',878:'Sci-Fi',10770:'TV',53:'Thriller',10752:'War',37:'Western'};
     return (
       <div className="main">
         <div className="row">
@@ -24,30 +30,25 @@ export class Favourites extends Component {
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">genre</th>
+                    <th scope="col">Popularity</th>
+                    <th scope="col">Ratings</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+
+                       {
+                              moviesArr.map((movieElem)=>(
+                                   <tr>
+                                   <th scope="row">{movieElem.title}</th>
+                                   <td>{}</td>
+                                   <td>Otto</td>
+                                   <td>@mdo</td>
+                                 </tr>
+                              ))
+                       }
+                 
                 </tbody>
               </table>
             </div>
