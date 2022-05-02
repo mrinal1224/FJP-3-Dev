@@ -34,6 +34,7 @@ export class Favourites extends Component {
                     <th scope="col">genre</th>
                     <th scope="col">Popularity</th>
                     <th scope="col">Ratings</th>
+                    <th scope="col">Delete from List</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -42,9 +43,11 @@ export class Favourites extends Component {
                               moviesArr.map((movieElem)=>(
                                    <tr>
                                    <th scope="row">{movieElem.title}</th>
-                                   <td>{}</td>
-                                   <td>Otto</td>
-                                   <td>@mdo</td>
+                                   <td>{genreids[movieElem.genre_ids[0]]}</td>
+                                   <td>{movieElem.popularity}</td>
+                                   <td>{movieElem.vote_average}</td>
+                                   <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                   
                                  </tr>
                               ))
                        }
