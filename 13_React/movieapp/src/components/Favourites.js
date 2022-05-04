@@ -3,16 +3,15 @@ import React, { Component } from "react";
 import { movies } from "../movieData";
 
 export class Favourites extends Component {
+  constructor() {
+    super();
 
-       constructor(){
-              super()
+    this.state = {
+      genres: [],
+      currgenre : 'All genres'
+    };
+  }
 
-              this.state={
-                     genres : []
-              }
-       }
-
-       
   render() {
     const moviesArr = movies.results;
     console.log(moviesArr);
@@ -38,43 +37,36 @@ export class Favourites extends Component {
       37: "Western",
     };
 
-     let tempArr = []
+    let tempArr = [];
 
-     moviesArr.map((movieObj)=>{
-            if(!tempArr.includes(genreids[movieObj.genre_ids[0]])){
-                   tempArr.push(genreids[movieObj.genre_ids[0]])
-            }
-     })
+    moviesArr.map((movieObj) => {
+      if (!tempArr.includes(genreids[movieObj.genre_ids[0]])) {
+        tempArr.push(genreids[movieObj.genre_ids[0]]);
+      }
+    });
 
-     tempArr.unshift('All genres')
+    tempArr.unshift("All genres");
 
-
-    
-
-
-
-     
-
-
-    return (
+      return (
       <div className="main">
         <div className="row">
           <div className="col-3">
             <ul className="list-group genre-selector">
+              {tempArr.map((genre) => (
+                 this.state.currgenre == genre ?
+                <li style={{background:'#3f51b5' , color:'white' , fontWeight:'bold'}}class="list-group-item">{genre}</li> :
+                <li style={{color:'#3f51b5'}}class="list-group-item">{genre}</li>
 
-                   {
-                          tempArr.map((genres)=>(
-                            <li class="list-group-item">{genres}</li>
-             
-                          ))
-                   }
-
-              
+              ))}
             </ul>
           </div>
           <div className="col-9 favourites-table">
             <div className="row">
-              <input placeholder='Search' type="text" className="input-group-text col" />
+              <input
+                placeholder="Search"
+                type="text"
+                className="input-group-text col"
+              />
               <input type="number" className="input-group-text col" />
             </div>
 
@@ -82,7 +74,7 @@ export class Favourites extends Component {
               <table class="table">
                 <thead>
                   <tr>
-                     <th></th>
+                    <th></th>
                     <th scope="col">Title</th>
                     <th scope="col">Genre</th>
                     <th scope="col">Popularity</th>
