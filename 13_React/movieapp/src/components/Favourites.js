@@ -58,6 +58,17 @@ export class Favourites extends Component {
          })
   }
 
+  sortPopularityDesc=()=>{
+      let temp = this.state.movies
+      temp.sort(function(objA , objB){
+         return objB.popularity-objA.popularity
+      })
+
+      this.setState({
+         movies : [...temp]
+      })
+  }
+
   render() {
     let genreids = {
       28: "Action",
@@ -90,7 +101,7 @@ export class Favourites extends Component {
     else{
       filterArr = this.state.movies.filter((movieObj)=>{
         let title = movieObj.original_title.toLowerCase();
-        return title.includes(this.state.currText.toLowerCase())
+        return title.includes(this.state.currText.toLowerCase().trim())
       })
     }
     
@@ -143,8 +154,8 @@ export class Favourites extends Component {
                     <th></th>
                     <th scope="col">Title</th>
                     <th scope="col">Genre</th>
-                    <th scope="col">Popularity</th>
-                    <th scope="col">Ratings</th>
+                    <th scope="col"><i class="fa-solid fa-sort-up" onClick={this.sortPopularityDesc}></i>Popularity<i class="fa-solid fa-sort-down"></i></th>
+                    <th scope="col"><i class="fa-solid fa-sort-up"></i>Ratings<i class="fa-solid fa-sort-down"></i></th>
                     <th></th>
                   </tr>
                 </thead>
