@@ -9,6 +9,7 @@ export class Favourites extends Component {
     this.state = {
       genres: [],
       currgenre: "All genres",
+      currText : '',
       movies: [],
     };
   }
@@ -82,12 +83,20 @@ export class Favourites extends Component {
 
     let filterArr = []
 
-    if(this.state.currgenre==='All genres'){
+    if(this.state.currText===''){
       filterArr = this.state.movies
     }
 
     else{
-       filterArr = this.state.movies.filter((movieObj)=> genreids[movieObj.genre_ids[0]]== this.state.currgenre)
+      filterArr = this.state.movies.filter((movieObj)=>{
+        let title = movieObj.original_title.toLowerCase();
+        return title.includes(this.state.currText.toLowerCase())
+      })
+    }
+    
+
+    if(this.state.currgenre!=='All genres'){
+       filterArr = this.state.movies.filter((movieObj)=> genreids[movieObj.genre_ids[0]]==this.state.currgenre)
     }
 
     return (
@@ -121,6 +130,8 @@ export class Favourites extends Component {
                 placeholder="Search"
                 type="text"
                 className="input-group-text col"
+                 value={this.state.currText} onChange={(e)=> this.setState({currText : e.target.value})}
+                
               />
               <input type="number" className="input-group-text col" />
             </div>
