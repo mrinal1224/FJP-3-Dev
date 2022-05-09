@@ -69,6 +69,40 @@ export class Favourites extends Component {
       })
   }
 
+  sortPopularityAsc=()=>{
+    let temp = this.state.movies
+    temp.sort(function(objA , objB){
+       return objA.popularity-objB.popularity
+    })
+
+    this.setState({
+       movies : [...temp]
+    })
+}
+
+sortRatingDesc=()=>{
+  let temp = this.state.movies
+  temp.sort(function(objA , objB){
+     return objB.vote_average-objA.vote_average
+  })
+
+  this.setState({
+     movies : [...temp]
+  })
+}
+
+
+sortRatingAsc=()=>{
+  let temp = this.state.movies
+  temp.sort(function(objA , objB){
+     return objA.vote_average-objB.vote_average
+  })
+
+  this.setState({
+     movies : [...temp]
+  })
+}
+
   render() {
     let genreids = {
       28: "Action",
@@ -154,8 +188,8 @@ export class Favourites extends Component {
                     <th></th>
                     <th scope="col">Title</th>
                     <th scope="col">Genre</th>
-                    <th scope="col"><i class="fa-solid fa-sort-up" onClick={this.sortPopularityDesc}></i>Popularity<i class="fa-solid fa-sort-down"></i></th>
-                    <th scope="col"><i class="fa-solid fa-sort-up"></i>Ratings<i class="fa-solid fa-sort-down"></i></th>
+                    <th scope="col"><i class="fa-solid fa-sort-up" onClick={this.sortPopularityDesc}></i>Popularity<i class="fa-solid fa-sort-down" onClick={this.sortPopularityAsc}></i></th>
+                    <th scope="col"><i class="fa-solid fa-sort-up" onClick={this.sortRatingDesc}></i>Ratings<i class="fa-solid fa-sort-down" onClick={this.sortRatingAsc}></i></th>
                     <th></th>
                   </tr>
                 </thead>
