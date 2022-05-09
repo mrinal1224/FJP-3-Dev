@@ -51,6 +51,12 @@ export class Favourites extends Component {
     });
   }
 
+  handleGenreChange =(genre)=>{
+         this.setState({
+           currgenre : genre // action
+         })
+  }
+
   render() {
     let genreids = {
       28: "Action",
@@ -74,6 +80,16 @@ export class Favourites extends Component {
       37: "Western",
     };
 
+    let filterArr = []
+
+    if(this.state.currgenre==='All genres'){
+      filterArr = this.state.movies
+    }
+
+    else{
+       filterArr = this.state.movies.filter((movieObj)=> genreids[movieObj.genre_ids[0]]== this.state.currgenre)
+    }
+
     return (
       <div className="main">
         <div className="row">
@@ -92,7 +108,7 @@ export class Favourites extends Component {
                     {genre}
                   </li>
                 ) : (
-                  <li style={{ color: "#3f51b5" }} class="list-group-item">
+                  <li style={{ color: "#3f51b5" }} class="list-group-item" onClick={()=>this.handleGenreChange(genre)}>
                     {genre}
                   </li>
                 )
@@ -122,7 +138,7 @@ export class Favourites extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.movies.map((movieElem) => (
+                  {filterArr.map((movieElem) => (
                     <tr>
                       <td>
                         <img
