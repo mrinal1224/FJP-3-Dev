@@ -1,12 +1,12 @@
 
 import './App.css';
-import Demo from './components/Demo';
-import Ue1 from './components/Ue1';
+
+import Ue2 from './components/Ue2';
 
 function App() {
   return (
     <div>
-     <Ue1/>
+     <Ue2/>
     </div>
   );
 }
