@@ -1,43 +1,32 @@
-// Node  + strict
-
-'use strict'
 
 
-//global -
-
-// console.log(this) 
 
 
-// function f(){
-//        console.log(this)
+
+// let flag = true 
+
+// var startTime = Date.now()
+
+
+// while (Date.now() - startTime < 1000) {
+//   console.log("------ waiting --------")
 // }
 
-// f()
-
-
-// let obj = {
-//        name : 'Rahul',
-
-//        f: function(){
-//               console.log(this)
-//        }
-// }
-
-// obj.f()
+// setTimeout(() => {
+//   flag = false
+// }, 2000) 
 
 
 
-let obj2 = {
-       name :'Mrinal',
-
-       f: function f(){
-              function g(){
-                     console.log(this)
-              }
-
-              g();
-       }
-}
 
 
-obj2.f()
+
+
+
+
+/**
+ * assignment: 
+ *  - fix this code so that: 
+ *    - we print ----- waiting ------ continously for 2 seconds
+ *    - after 2 seconds stop printing that 
+ */

@@ -13,3 +13,19 @@ console.log('BaseName->'+ basename)
 
 console.log(__dirname) // gets you the path of the current directory of the file
 console.log(__filename) // gets you the path of the file you are in
+
+
+
+
+
+
+function of(a){
+       function adder(b){
+              console.log(a+b)
+       }
+
+       return adder
+}
+
+var getforFour = of(4)
+getforFour(10)
