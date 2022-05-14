@@ -1,12 +1,13 @@
 
 import './App.css';
+import Parent from './components/Context/Parent';
+import Test from "./components/Context/Test"
 
-import Ue2 from './components/Ue2';
 
 function App() {
   return (
     <div>
-     <Ue2/>
+     <Test/>
     </div>
   );
 }
